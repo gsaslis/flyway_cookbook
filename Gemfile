@@ -26,4 +26,5 @@ group :development do
   gem 'guard-foodcritic'
   gem 'guard-rspec'
   gem 'guard-rubocop'
+  gem 'stove'
 end
