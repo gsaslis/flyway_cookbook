@@ -1,0 +1,24 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: chef/centos-6.5
+
+suites:
+  - name: migrate_mysql
+    run_list:
+      - recipe[flyway_test::mysql]
+      - recipe[flyway_test::migrate]
+    attributes:
+      flyway:
+        test:
+          db: 'mysql'
+        conf:
+          url: 'jdbc:mysql://localhost/flyway_test'
+          user: 'root'
+          password: 'mysql'
+          locations: 'filesystem:/tmp/db'
