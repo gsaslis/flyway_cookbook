@@ -26,5 +26,5 @@ group :development do
   gem 'guard-foodcritic'
   gem 'guard-rspec'
   gem 'guard-rubocop'
-  gem 'stove'
+  gem 'stove', '3.2.5'
 end
