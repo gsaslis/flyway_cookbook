@@ -1,4 +1,6 @@
 # flyway-cookbook
+[![Cookbook](http://img.shields.io/cookbook/v/flyway.svg)](https://github.com/base2Services/flyway_cookbook)
+[![Build Status](https://travis-ci.org/base2Services/flyway_cookbook.svg?branch=master)](https://travis-ci.org/base2Services/flyway_cookbook)
 
 Install and configures [flywaydb](http://flywaydb.org) and allows for execution
 of database migrations
