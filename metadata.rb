@@ -16,4 +16,4 @@ supports 'opensuse'
 
 depends 'ark'
 depends 'mysql'
-depends 'postgresql'
+depends 'postgresql', '~> 3.4.16'
