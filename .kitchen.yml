@@ -7,12 +7,8 @@ provisioner:
 
 platforms:
   - name: chef/centos-6.5
-
-suites:
-  - name: migrate_mysql
     run_list:
       - recipe[flyway_test::mysql]
-      - recipe[flyway_test::migrate]
     attributes:
       flyway:
         test:
@@ -22,3 +18,31 @@ suites:
           user: 'root'
           password: 'mysql'
           locations: 'filesystem:/tmp/db'
+  - name: opscode-opensuse-13.1
+    driver:
+      box: opensuse-13.1
+      box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_opensuse-13.1-x86_64_chef-provisionerless.box
+    run_list:
+      - recipe[flyway_test::postgresql]
+    attributes:
+      flyway:
+        test:
+          db: 'postgresql'
+        conf:
+          url: 'jdbc:postgresql://localhost/flyway_test'
+          user: 'postgres'
+          password: 'p0stgr3s'
+          locations: 'filesystem:/tmp/db'
+      postgresql:
+        client:
+          packages: [ 'postgresql92', 'postgresql92-devel']
+        server:
+          packages: [ 'postgresql92-server']
+        dir: '/var/lib/pgsql/data'
+        password:
+          postgres: 'p0stgr3s'
+
+suites:
+  - name: migrate_database
+    run_list:
+      - recipe[flyway_test::migrate]

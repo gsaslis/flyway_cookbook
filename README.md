@@ -9,6 +9,7 @@ of database migrations
 
  * Centos, RedHat & Amazon Linux
  * Ubuntu, debian
+ * OpenSUSE
  * Windows
 
 ## Attributes

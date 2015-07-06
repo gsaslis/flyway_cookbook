@@ -21,10 +21,7 @@ default['flyway']['version'] = '3.2.1'
 default['flyway']['base_url'] = 'https://bintray.com/artifact/download/business/maven'
 
 case node['platform_family']
-when 'debian'
-  default['flyway']['url'] = "#{node['flyway']['base_url']}/flyway-commandline-#{node['flyway']['version']}-linux-x64.tar.gz"
-  default['flyway']['install_dir'] = '/opt'
-when 'rhel'
+when 'debian', 'rhel', 'suse'
   default['flyway']['url'] = "#{node['flyway']['base_url']}/flyway-commandline-#{node['flyway']['version']}-linux-x64.tar.gz"
   default['flyway']['install_dir'] = '/opt'
 when 'windows'
